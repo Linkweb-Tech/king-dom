@@ -19,7 +19,7 @@ class MakeWhoisController extends AbstractController
 
 
     #[Route(
-        path: '/domain/{id}/whois',
+        path: '/domain/whois/{domain}',
         name: 'whois_domain',
         defaults: [
         '_api_resource_class' => Domain::class,

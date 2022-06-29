@@ -5,18 +5,21 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Controller\Domain\DomainController;
 use App\Controller\Domain\MakeWhoisController;
+use App\Controller\Domain\SaveDomainController;
 use App\Repository\DomainRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: DomainRepository::class)]
-#[ApiResource(itemOperations: [
-    'get',
-    'whois_domain' => [
-        'method' => 'GET',
-        'path' => '/domain/{id}/whois',
-        'controller' => MakeWhoisController::class,
-    ],
-])]
+#[ApiResource(
+    itemOperations: [
+        'whois_domain' => [
+            'method'        => 'POST',
+            'path'          => '/domain/whois/',
+            'controller'    => MakeWhoisController::class,
+        ],
+    ]
+)]
+
 class Domain
 {
     #[ORM\Id]
