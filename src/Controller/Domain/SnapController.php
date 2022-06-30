@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SnapController extends AbstractController
 {
     #[Route('/create-connexion', name:'create_connexion')]
-    public function declareConnexion(): JsonResponse
+    public function launchConnexion(Domain $domain): JsonResponse
     {
         $rhadamanthe= new ChannelEPPController;
         $eaques = new ChannelEPPController;
@@ -21,8 +21,13 @@ class SnapController extends AbstractController
 
 
 
-        $check = $minos->checkdomain('baszszc44.fr');
+        $check = $minos->checkIfItsTime('baszszc44.fr');
 
         return $this->json($check);
+    }
+
+    private function scanDomainAvailability()
+    {
+
     }
 }

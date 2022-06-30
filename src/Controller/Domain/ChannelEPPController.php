@@ -5,6 +5,7 @@ use App\Controller\Trait\DateTrait;
 use App\Entity\Domain;
 use App\Controller\Trait\WhoisTrait;
 use App\Repository\DomainRepository;
+use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -33,19 +34,21 @@ class ChannelEPPController extends AbstractController
      * @throws \Exception
      */
     #[Route('/check-domain-expiration', name: 'check-domain-expiration')]
-    public function checkIfItsTime(DomainRepository $domainRepository): JsonResponse
+    public function checkIfItsTime(DomainRepository $domainRepository)
     {
         $domains = $domainRepository->findAll();
-        //$minute = ( new \DateTime)->format('i');
         $today = $this->getTodayFormatted();
         foreach ($domains as $domain){
             $completeTime = $domain->getExpiryDate().' '. $domain->getLaunchTime();
             $completeTimeFormatted = str_replace('/', '-', $completeTime);
             $connexionTime =  new \DateTime(date("d-m-Y H:i", strtotime($completeTimeFormatted)));
             if($today->format('d/m/Y H:i') == $connexionTime->format('d/m/Y H:i')){
-                return $this->json(['time' => $today->modify("20 minutes")]);
+//                $response = $this->forward('App\Controller\SnapController::launchConnexion', [
+//                    'domain' => $domain
+//                ]);
+                return true;
             } else {
-                return $this->json(['time' => 'false']);
+                return false;
             }
         }
     }

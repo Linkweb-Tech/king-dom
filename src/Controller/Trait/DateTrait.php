@@ -12,12 +12,17 @@ trait DateTrait
      * @param String $date
      * @return array
      */
-    protected function formatDate(String $date) : array
+    protected function formatDate(String $date, bool $redemption) : array
     {
         $minute = new \DateTime(date("d-m-Y H:i"));
         $minute->format('i');
         $domain = array();
-        $domain['expiryDate'] = date("d/m/Y", strtotime($date));
+        if($redemption) {
+            $domain['expiryDate'] = date("d/m/Y", strtotime('+30 days', strtotime($date)));
+        } else {
+            $domain['expiryDate'] = date("d/m/Y", strtotime($date));
+        }
+
         $domain['expiryTime']= date("H:i:s", strtotime($date));
         $minute = date('i', strtotime($date));
         if($minute > '32') {

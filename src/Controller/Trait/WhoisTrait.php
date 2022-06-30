@@ -11,12 +11,16 @@ trait WhoisTrait
     protected function whois(String $name)
     {
         $whois = shell_exec("whois $name");
-            $domainStatus = $this->getStatusFromWhois($whois, $name);
-            dd($domainStatus);
-        $expireDate = $this->get_string_between($whois,"Expiry Date:", "created:");
-        $expireDate = trim($expireDate);
-        $return = $this->formatDate($expireDate);
-        $return[]  = trim($domainStatus);
+        $domainStatus = $this->getStatusFromWhois($whois, $name);
+        if($domainStatus === 'REDEMPTION'){
+            $lastUpdateDate = $this->get_string_between($whois,"last-update:", "\n");
+            $return = $this->formatDate(trim($lastUpdateDate), true);
+        } else {
+            $expireDate = $this->get_string_between($whois,"Expiry Date:", "created:");
+            $return = $this->formatDate(trim($expireDate), false);
+        }
+
+        $return['status']  = trim($domainStatus);
         return $return;
     }
 
