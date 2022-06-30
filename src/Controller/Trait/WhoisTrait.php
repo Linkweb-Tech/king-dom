@@ -1,18 +1,18 @@
 <?php
 
 namespace App\Controller\Trait;
-
-
-
+use App\Controller\Trait\DateTrait;
 /**
  * Trait WhoisTrait.
  */
 trait WhoisTrait
 {
+    use DateTrait;
     protected function whois(String $name)
     {
         $whois = shell_exec("whois $name");
-        $domainStatus = $this->get_string_between($whois, $name ."\nstatus:", "\nhold:" );
+            $domainStatus = $this->getStatusFromWhois($whois, $name);
+            dd($domainStatus);
         $expireDate = $this->get_string_between($whois,"Expiry Date:", "created:");
         $expireDate = trim($expireDate);
         $return = $this->formatDate($expireDate);
@@ -38,23 +38,15 @@ trait WhoisTrait
         return substr($string, $ini, $len);
     }
 
-    /**
-     * Format Date return by Whois before save in Database
-     * @param String $date
-     * @return array
-     */
-    protected function formatDate(String $date) : array
+    protected function getStatusFromWhois(string $whois, string $name)
     {
-        $domain = array();
-        $domain['expiryDate'] = date("d/m/Y", strtotime($date));
-        $domain['expiryTime']= date("H:i:s", strtotime($date));
-        $minute = date('i', strtotime($date));
-        if($minute > '32') {
-            $domain['launchTime'] = date("H:i", strtotime("+1 hour", strtotime($date)));
-        } else {
-            $domain['launchTime'] = date("H:i", strtotime($date));
-        }
+        $domainStatus = $this->get_string_between($whois,  $name  , "hold:" );
+        $domainStatus = strstr($domainStatus, $name);
+        $domainStatus = strstr($domainStatus, "status:");
+        $domainStatus = strstr($domainStatus, "\n", true);
+        $domainStatus = substr($domainStatus, 13 );
 
-        return $domain;
+        return $domainStatus;
     }
+
 }

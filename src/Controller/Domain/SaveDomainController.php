@@ -23,8 +23,10 @@ class SaveDomainController extends AbstractController
     #[Route('/whois', name: 'domain_whois')]
     public function index(Request $req)
     {
-        dd($req->query->get('domain'));
-        $whois = $this->whois('test.fr');
+        //dd($req->query->get('domain'));
+        $domain = $req->query->get('domain');
+        $whois = $this->whois($domain);
+        dd($whois);
         return $whois;
     }
 
