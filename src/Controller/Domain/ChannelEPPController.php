@@ -7,9 +7,10 @@ use App\Controller\Trait\WhoisTrait;
 use App\Repository\DomainRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Persistence\ManagerRegistry;
-use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 
 
 
@@ -19,7 +20,7 @@ class ChannelEPPController extends AbstractController
 {
     use WhoisTrait;
     use DateTrait;
-    public function __construct()
+    public function __construct(EntityManagerInterface $entityManager)
     {
 
         $this->host = $_ENV['HOST'];
@@ -27,11 +28,14 @@ class ChannelEPPController extends AbstractController
         $this->cert = $_ENV['CERT'];
         $this->login = $_ENV['LOGIN'];
         $this->password = $_ENV['PASSWORD'];
-        $kernel = $GLOBALS['app'];
-        $container = $kernel->getContainer();
-        $this->doctrine = $container->get('doctrine');
+        $this->manager = $entityManager;
+        //$kernel = $GLOBALS['app'];
+        //$container = $kernel->getContainer();
+
 
     }
+
+
 
     /**
      * @param DomainRepository $domainRepository
@@ -39,26 +43,21 @@ class ChannelEPPController extends AbstractController
      * @throws \Exception
      */
     #[Route('/check-domain-expiration', name: 'check-domain-expiration')]
-    public function checkIfItsTime(): JsonResponse
+    public function checkIfItsTime(): string
     {
-        $domains = $this->doctrine->getRepository(Domain::class)->findAll();
+
+        $domains = $this->manager->getRepository(Domain::class)->findAll();
         $today = $this->getTodayFormatted();
         foreach ($domains as $domain){
             $completeTime = $domain->getExpiryDate().' '. $domain->getLaunchTime();
             $completeTimeFormatted = str_replace('/', '-', $completeTime);
             $connexionTime =  new \DateTime(date("d-m-Y H:i", strtotime($completeTimeFormatted)));
-//            $response = $this->forward('App\Controller\SnapController::launchConnexion', [
-//                    'domain' => $domain
-//            ]);
-//            return $this->json($response);
-            if($today->format('d/m/Y H:i') == $connexionTime->format('d/m/Y H:i')){
-                return $this->json([
-                    'domainName' => $domain->getName(),
-                ]);
-            } else {
-                return false;
+            if($today->format('d/m/Y H:i') >= $connexionTime->format('d/m/Y H:i') && $today->format('d/m/Y H:i') < $connexionTime->modify('20 minutes')->format('d/m/Y H:i') ){
+                dump($domain->getName() .' :: ' . $today->format('d/m/Y H:i'));
+                return $domain->getName();
             }
         }
+        return false;
     }
 
 
@@ -112,6 +111,7 @@ class ChannelEPPController extends AbstractController
         $frame = $this->receive($this->fp);
         //$xml = simplexml_load_string($frame);
         $parsed = $this->get_string_between($frame, 'avail="', '">');
+
         return $parsed;
     }
 
@@ -136,16 +136,16 @@ class ChannelEPPController extends AbstractController
      */
     public function snipeDomain(string $domain)
     {
-        $buffer = '<?xml version="1.0"?>
-            <epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+        $buffer = "<?xml version='1.0'?>
+            <epp xmlns='urn:ietf:params:xml:ns:epp-1.0'>
              <command>
              <create>
-            <domain:create xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-            <domain:name>linkweb.fr</domain:name>
-            <domain:period unit="y">1</domain:period>
+            <domain:create xmlns:domain='urn:ietf:params:xml:ns:domain-1.0'>
+            <domain:name>$domain</domain:name>
+            <domain:period unit='y'>1</domain:period>
             <domain:registrant>MP61713</domain:registrant>
-            <domain:contact type="admin">MP61713</domain:contact>
-            <domain:contact type="tech">NC32276</domain:contact>
+            <domain:contact type='admin'>MP61713</domain:contact>
+            <domain:contact type='tech'>NC32276</domain:contact>
             <domain:authInfo>
             <domain:pw>iv2252UtF8N/kF7atGH3iCaf</domain:pw>
             </domain:authInfo>
@@ -153,12 +153,12 @@ class ChannelEPPController extends AbstractController
              </create>
              <clTRID>TMcF3I+zGO1VS5gO7pJWDkVn</clTRID>
              </command>
-            </epp>';
+            </epp>";
         fwrite($this->fp, pack('N', 4 + strlen($buffer)));
         fwrite($this->fp, $buffer);
         $frame = $this->receive($this->fp);
-        file_put_contents('cronTest.txt', json_encode($frame));
-        return $this->json($frame);
+        file_put_contents('/Users/nicolas_candelon/Documents/Projects/king-dom/result.txt', json_encode($frame), FILE_APPEND);
+        return $frame;
     }
 
     private function fullread($fp, $count) {
@@ -181,5 +181,6 @@ class ChannelEPPController extends AbstractController
         $buffer = $this->fullread($fp, $count - 4);
         return $buffer;
     }
+
 }
 

@@ -8,25 +8,17 @@ use App\Controller\Domain\MakeWhoisController;
 use App\Controller\Domain\SaveDomainController;
 use App\Repository\DomainRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Ramsey\Uuid\Doctrine\UuidGenerator;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: DomainRepository::class)]
-#[ApiResource(
-    itemOperations: [
-        'whois_domain' => [
-            'method'        => 'POST',
-            'path'          => '/domain/whois/',
-            'controller'    => MakeWhoisController::class,
-        ],
-    ]
-)]
+#[ApiResource()]
 
 class Domain
 {
     #[ORM\Id]
-    #[ORM\Column(type:"uuid", unique:true)]
-    #[ORM\GeneratedValue(strategy:"CUSTOM")]
-    #[ORM\CustomIdGenerator(class:UuidGenerator::class)]
+    #[ORM\Column(type:"bigint", unique:true)]
+    #[ORM\GeneratedValue(strategy:"AUTO")]
+    #[Assert\Uuid]
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
