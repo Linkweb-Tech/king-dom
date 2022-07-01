@@ -2,6 +2,7 @@
 namespace App\Controller\Domain;
 
 use App\Controller\Domain\ChannelEPPController;
+use App\Entity\Domain;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SnapController extends AbstractController
 {
     #[Route('/create-connexion', name:'create_connexion')]
-    public function launchConnexion(Domain $domain): JsonResponse
+    public function launchConnexion(): JsonResponse
     {
         $rhadamanthe= new ChannelEPPController;
         $eaques = new ChannelEPPController;
@@ -21,7 +22,8 @@ class SnapController extends AbstractController
 
 
 
-        $check = $minos->checkIfItsTime('baszszc44.fr');
+        $check = $minos->checkIfItsTime();
+
 
         return $this->json($check);
     }

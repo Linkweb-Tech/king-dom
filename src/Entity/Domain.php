@@ -8,6 +8,7 @@ use App\Controller\Domain\MakeWhoisController;
 use App\Controller\Domain\SaveDomainController;
 use App\Repository\DomainRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Ramsey\Uuid\Doctrine\UuidGenerator;
 
 #[ORM\Entity(repositoryClass: DomainRepository::class)]
 #[ApiResource(
@@ -23,8 +24,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Domain
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type:"uuid", unique:true)]
+    #[ORM\GeneratedValue(strategy:"CUSTOM")]
+    #[ORM\CustomIdGenerator(class:UuidGenerator::class)]
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -38,6 +40,7 @@ class Domain
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $launchTime;
+
 
     public function getId(): ?int
     {

@@ -5,10 +5,11 @@ use App\Controller\Trait\DateTrait;
 use App\Entity\Domain;
 use App\Controller\Trait\WhoisTrait;
 use App\Repository\DomainRepository;
-use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\EntityManager;
 
 
 
@@ -20,11 +21,15 @@ class ChannelEPPController extends AbstractController
     use DateTrait;
     public function __construct()
     {
+
         $this->host = $_ENV['HOST'];
         $this->port = $_ENV['PORT'];
         $this->cert = $_ENV['CERT'];
         $this->login = $_ENV['LOGIN'];
         $this->password = $_ENV['PASSWORD'];
+        $kernel = $GLOBALS['app'];
+        $container = $kernel->getContainer();
+        $this->doctrine = $container->get('doctrine');
 
     }
 
@@ -34,19 +39,22 @@ class ChannelEPPController extends AbstractController
      * @throws \Exception
      */
     #[Route('/check-domain-expiration', name: 'check-domain-expiration')]
-    public function checkIfItsTime(DomainRepository $domainRepository)
+    public function checkIfItsTime(): JsonResponse
     {
-        $domains = $domainRepository->findAll();
+        $domains = $this->doctrine->getRepository(Domain::class)->findAll();
         $today = $this->getTodayFormatted();
         foreach ($domains as $domain){
             $completeTime = $domain->getExpiryDate().' '. $domain->getLaunchTime();
             $completeTimeFormatted = str_replace('/', '-', $completeTime);
             $connexionTime =  new \DateTime(date("d-m-Y H:i", strtotime($completeTimeFormatted)));
-            if($today->format('d/m/Y H:i') == $connexionTime->format('d/m/Y H:i')){
-//                $response = $this->forward('App\Controller\SnapController::launchConnexion', [
+//            $response = $this->forward('App\Controller\SnapController::launchConnexion', [
 //                    'domain' => $domain
-//                ]);
-                return true;
+//            ]);
+//            return $this->json($response);
+            if($today->format('d/m/Y H:i') == $connexionTime->format('d/m/Y H:i')){
+                return $this->json([
+                    'domainName' => $domain->getName(),
+                ]);
             } else {
                 return false;
             }
