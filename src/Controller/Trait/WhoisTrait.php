@@ -12,14 +12,15 @@ trait WhoisTrait
     {
         $whois = shell_exec("whois $name");
         $domainStatus = $this->getStatusFromWhois($whois, $name);
-        if($domainStatus === 'REDEMPTION'){
+        if($domainStatus === 'REDEMPTION' || $domainStatus === 'DELETED' ){
             $lastUpdateDate = $this->get_string_between($whois,"last-update:", "\n");
             $return = $this->formatDate(trim($lastUpdateDate), true);
         } else {
             $expireDate = $this->get_string_between($whois,"Expiry Date:", "created:");
             $return = $this->formatDate(trim($expireDate), false);
         }
-
+        //$return['UTC'] = $this->getTodayFormatted();
+        //$return['Cheznous'] = $this->getTodayFormatted()->setTimezone(new \DateTimeZone('Europe/Paris'));
         $return['status']  = trim($domainStatus);
         return $return;
     }

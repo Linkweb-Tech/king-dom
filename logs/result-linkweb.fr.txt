@@ -1,0 +1,207 @@
+
+ linkweb.fr  Canal 1 : 0 :: 17:38:52.352828
+ linkweb.fr  Canal 2 : 0 :: 17:38:52.992197
+ linkweb.fr  Canal 1 : 0 :: 17:38:54.429352
+ linkweb.fr  Canal 2 : 0 :: 17:38:55.153528
+ linkweb.fr  Canal 1 : 0 :: 17:38:56.559877
+ linkweb.fr  Canal 2 : 0 :: 17:38:57.190039
+ linkweb.fr  Canal 1 : 0 :: 17:39:00.490190
+ linkweb.fr  Canal 2 : 0 :: 17:39:01.119493
+ linkweb.fr  Canal 1 : 0 :: 17:39:02.409064
+ linkweb.fr  Canal 2 : 0 :: 17:39:03.064181
+ linkweb.fr  Canal 1 : 0 :: 17:39:06.345749
+ linkweb.fr  Canal 2 : 0 :: 17:39:07.017401
+ linkweb.fr  Canal 1 : 0 :: 17:39:08.286817
+ linkweb.fr  Canal 2 : 0 :: 17:39:08.931646
+ linkweb.fr  Canal 1 : 0 :: 17:39:12.230667
+ linkweb.fr  Canal 2 : 0 :: 17:39:12.889567
+ linkweb.fr  Canal 1 : 0 :: 17:39:14.201470
+ linkweb.fr  Canal 2 : 0 :: 17:39:15.204964
+ linkweb.fr  Canal 1 : 0 :: 17:39:16.484977
+ linkweb.fr  Canal 2 : 0 :: 17:39:17.163117
+ linkweb.fr  Canal 1 : 0 :: 17:39:18.456075
+ linkweb.fr  Canal 2 : 0 :: 17:39:21.106108
+ linkweb.fr  Canal 1 : 0 :: 17:39:22.387425
+ linkweb.fr  Canal 2 : 0 :: 17:39:23.034552
+ linkweb.fr  Canal 1 : 0 :: 17:39:24.322871
+ linkweb.fr  Canal 2 : 0 :: 17:39:26.987956
+ linkweb.fr  Canal 1 : 0 :: 17:39:28.274098
+ linkweb.fr  Canal 2 : 0 :: 17:39:28.922371
+ linkweb.fr  Canal 1 : 0 :: 17:39:30.205259
+ linkweb.fr  Canal 2 : 0 :: 17:39:32.866669
+ linkweb.fr  Canal 1 : 0 :: 17:39:34.156345
+ linkweb.fr  Canal 2 : 0 :: 17:39:34.801584
+ linkweb.fr  Canal 1 : 0 :: 17:39:36.086996
+ linkweb.fr  Canal 2 : 0 :: 17:39:38.731607
+ linkweb.fr  Canal 1 : 0 :: 17:39:40.023191
+ linkweb.fr  Canal 2 : 0 :: 17:39:40.665600
+ linkweb.fr  Canal 1 : 0 :: 17:39:41.967095
+ linkweb.fr  Canal 2 : 0 :: 17:39:44.594140
+ linkweb.fr  Canal 1 : 0 :: 17:39:45.884493
+ linkweb.fr  Canal 2 : 0 :: 17:39:46.530985
+ linkweb.fr  Canal 1 : 0 :: 17:39:47.840354
+ linkweb.fr  Canal 2 : 0 :: 17:39:50.490432
+ linkweb.fr  Canal 1 : 0 :: 17:39:51.773552
+ linkweb.fr  Canal 2 : 0 :: 17:39:52.423330
+ linkweb.fr  Canal 1 : 0 :: 17:39:53.701406
+ linkweb.fr  Canal 2 : 0 :: 17:39:56.370047
+ linkweb.fr  Canal 1 : 0 :: 17:39:57.646726
+ linkweb.fr  Canal 2 : 0 :: 17:39:58.284701
+ linkweb.fr  Canal 1 : 0 :: 17:39:59.539676
+ linkweb.fr  Canal 2 : 0 :: 17:40:02.176170
+ linkweb.fr  Canal 1 : 0 :: 17:40:03.443900
+ linkweb.fr  Canal 2 : 0 :: 17:40:04.100950
+ linkweb.fr  Canal 1 : 0 :: 17:40:05.335278
+ linkweb.fr  Canal 2 : 0 :: 17:40:07.983116
+ linkweb.fr  Canal 1 : 0 :: 17:40:09.270747
+ linkweb.fr  Canal 2 : 0 :: 17:40:09.924816
+ linkweb.fr  Canal 1 : 0 :: 17:40:11.214155
+ linkweb.fr  Canal 2 : 0 :: 17:40:13.857325
+ linkweb.fr  Canal 1 : 0 :: 17:40:15.139190
+ linkweb.fr  Canal 2 : 0 :: 17:40:15.824187
+ linkweb.fr  Canal 1 : 0 :: 17:40:17.086885
+ linkweb.fr  Canal 2 : 0 :: 17:40:19.725003
+ linkweb.fr  Canal 1 : 0 :: 17:40:21.010128
+ linkweb.fr  Canal 2 : 0 :: 17:40:21.658950
+ linkweb.fr  Canal 1 : 0 :: 17:40:22.952750
+ linkweb.fr  Canal 2 : 0 :: 17:40:25.587829
+ linkweb.fr  Canal 1 : 0 :: 17:40:26.904936
+ linkweb.fr  Canal 2 : 0 :: 17:40:27.536147
+ linkweb.fr  Canal 1 : 0 :: 17:40:28.838415
+ linkweb.fr  Canal 2 : 0 :: 17:40:31.483198
+ linkweb.fr  Canal 1 : 0 :: 17:40:32.757159
+ linkweb.fr  Canal 2 : 0 :: 17:40:33.381084
+ linkweb.fr  Canal 1 : 0 :: 17:40:42.620739
+ linkweb.fr  Canal 2 : 0 :: 17:40:43.272115
+ linkweb.fr  Canal 1 : 0 :: 17:40:44.663507
+ linkweb.fr  Canal 2 : 0 :: 17:40:45.428582
+ linkweb.fr  Canal 1 : 0 :: 17:40:46.814214
+ linkweb.fr  Canal 2 : 0 :: 17:40:47.447835
+ linkweb.fr  Canal 1 : 0 :: 17:40:50.742195
+ linkweb.fr  Canal 2 : 0 :: 17:40:51.390668
+ linkweb.fr  Canal 1 : 0 :: 17:40:52.644469
+ linkweb.fr  Canal 2 : 0 :: 17:40:53.286942
+ linkweb.fr  Canal 1 : 0 :: 17:40:56.535164
+ linkweb.fr  Canal 2 : 0 :: 17:40:57.181701
+ linkweb.fr  Canal 1 : 0 :: 17:40:58.489780
+ linkweb.fr  Canal 2 : 0 :: 17:40:59.127597
+ linkweb.fr  Canal 1 : 0 :: 17:41:02.371469
+ linkweb.fr  Canal 2 : 0 :: 17:41:02.991331
+ linkweb.fr  Canal 1 : 0 :: 17:41:04.256041
+ linkweb.fr  Canal 2 : 0 :: 17:41:04.874837
+ linkweb.fr  Canal 1 : 0 :: 17:41:08.154781
+ linkweb.fr  Canal 2 : 0 :: 17:41:08.791708
+ linkweb.fr  Canal 1 : 0 :: 17:41:10.083667
+ linkweb.fr  Canal 2 : 0 :: 17:41:10.708778
+ linkweb.fr  Canal 1 : 0 :: 17:41:14.014818
+ linkweb.fr  Canal 2 : 0 :: 17:41:14.632130
+ linkweb.fr  Canal 1 : 0 :: 17:41:15.868364
+ linkweb.fr  Canal 2 : 0 :: 17:41:16.498375
+ linkweb.fr  Canal 1 : 0 :: 17:41:19.749839
+ linkweb.fr  Canal 2 : 0 :: 17:41:20.375730
+ linkweb.fr  Canal 1 : 0 :: 17:41:21.658396
+ linkweb.fr  Canal 2 : 0 :: 17:41:22.297933
+ linkweb.fr  Canal 1 : 0 :: 17:41:25.571211
+ linkweb.fr  Canal 2 : 0 :: 17:41:26.251043
+ linkweb.fr  Canal 1 : 0 :: 17:41:27.503968
+ linkweb.fr  Canal 2 : 0 :: 17:41:28.143978
+ linkweb.fr  Canal 1 : 0 :: 17:41:31.412561
+ linkweb.fr  Canal 2 : 0 :: 17:41:32.037472
+ linkweb.fr  Canal 1 : 0 :: 17:41:33.285037
+ linkweb.fr  Canal 2 : 0 :: 17:41:33.908835
+ linkweb.fr  Canal 1 : 0 :: 17:41:37.172775
+ linkweb.fr  Canal 2 : 0 :: 17:41:37.790564
+ linkweb.fr  Canal 1 : 0 :: 17:41:39.018732
+ linkweb.fr  Canal 2 : 0 :: 17:41:39.652907
+ linkweb.fr  Canal 1 : 0 :: 17:41:42.924623
+ linkweb.fr  Canal 2 : 0 :: 17:41:43.544910
+ linkweb.fr  Canal 1 : 0 :: 17:41:44.803894
+ linkweb.fr  Canal 2 : 0 :: 17:41:45.437033
+ linkweb.fr  Canal 1 : 0 :: 17:41:48.715534
+ linkweb.fr  Canal 2 : 0 :: 17:41:49.342015
+ linkweb.fr  Canal 1 : 0 :: 17:41:50.595705
+ linkweb.fr  Canal 2 : 0 :: 17:41:51.219297
+ linkweb.fr  Canal 1 : 0 :: 17:41:54.470572
+ linkweb.fr  Canal 2 : 0 :: 17:41:55.116699
+ linkweb.fr  Canal 1 : 0 :: 17:41:56.395284
+ linkweb.fr  Canal 2 : 0 :: 17:41:57.035048
+ linkweb.fr  Canal 1 :  :: 17:42:00.797447
+ linkweb.fr  Canal 2 :  :: 17:42:01.721228
+ linkweb.fr  Canal 1 :  :: 17:42:03.612235
+ linkweb.fr  Canal 2 :  :: 17:42:04.566673
+ linkweb.fr  Canal 1 :  :: 17:42:06.476822
+ linkweb.fr  Canal 2 :  :: 17:42:07.455944
+ linkweb.fr  Canal 1 :  :: 17:42:09.348130
+ linkweb.fr  Canal 2 :  :: 17:42:10.285214
+ linkweb.fr  Canal 1 :  :: 17:42:12.181458
+ linkweb.fr  Canal 2 :  :: 17:42:13.217929
+ linkweb.fr  Canal 1 :  :: 17:42:15.140351
+ linkweb.fr  Canal 2 :  :: 17:42:16.127209
+ linkweb.fr  Canal 1 :  :: 17:42:18.132699
+ linkweb.fr  Canal 2 :  :: 17:42:19.099432
+ linkweb.fr  Canal 1 :  :: 17:42:21.038105
+ linkweb.fr  Canal 2 :  :: 17:42:22.005313
+ linkweb.fr  Canal 1 :  :: 17:42:23.912789
+ linkweb.fr  Canal 2 :  :: 17:42:24.890738
+ linkweb.fr  Canal 1 :  :: 17:42:26.777709
+ linkweb.fr  Canal 2 :  :: 17:42:27.756327
+ linkweb.fr  Canal 1 :  :: 17:42:29.663486
+ linkweb.fr  Canal 2 :  :: 17:42:30.672180
+ linkweb.fr  Canal 1 :  :: 17:42:32.584606
+ linkweb.fr  Canal 2 :  :: 17:42:33.529659
+ linkweb.fr  Canal 1 :  :: 17:42:35.466362
+ linkweb.fr  Canal 2 :  :: 17:42:36.469890
+ linkweb.fr  Canal 1 :  :: 17:42:38.366621
+ linkweb.fr  Canal 2 :  :: 17:42:39.319231
+ linkweb.fr  Canal 1 :  :: 17:42:41.303069
+ linkweb.fr  Canal 2 :  :: 17:42:42.273022
+ linkweb.fr  Canal 1 :  :: 17:42:44.216754
+ linkweb.fr  Canal 2 :  :: 17:42:45.172597
+ linkweb.fr  Canal 1 :  :: 17:42:47.024065
+ linkweb.fr  Canal 2 :  :: 17:42:47.943633
+ linkweb.fr  Canal 1 :  :: 17:42:49.841861
+ linkweb.fr  Canal 2 :  :: 17:42:50.787147
+ linkweb.fr  Canal 1 :  :: 17:42:52.637901
+ linkweb.fr  Canal 2 :  :: 17:42:53.585959
+ linkweb.fr  Canal 1 :  :: 17:42:55.475161
+ linkweb.fr  Canal 2 :  :: 17:42:56.520614
+ linkweb.fr  Canal 1 :  :: 17:42:58.454285
+ linkweb.fr  Canal 2 :  :: 17:42:59.407507
+ linkweb.fr  Canal 1 :  :: 17:43:00.818812
+ linkweb.fr  Canal 2 :  :: 17:43:01.285431
+ linkweb.fr  Canal 1 :  :: 17:43:02.217128
+ linkweb.fr  Canal 2 :  :: 17:43:02.683633
+ linkweb.fr  Canal 1 :  :: 17:43:03.612652
+ linkweb.fr  Canal 2 :  :: 17:43:04.078033
+ linkweb.fr  Canal 1 :  :: 17:43:05.009828
+ linkweb.fr  Canal 2 :  :: 17:43:05.475377
+ linkweb.fr  Canal 1 : 0 :: 17:46:09.253528
+ linkweb.fr  Canal 1 : 0 :: 17:47:49.102022
+ linkweb.fr  Canal 1 : 0 :: 17:48:09.647303
+ linkweb.fr  Canal 1 : 0 :: 17:48:24.491373
+ linkweb.fr  Canal 1 : 0 :: 17:48:42.233447
+ linkweb.fr  Canal 1 : 0 :: 17:49:44.570820
+ linkweb.fr  Canal 2 : 0 :: 17:49:45.207963
+ linkweb.fr  Canal 3 : 0 :: 17:49:45.846977
+ linkweb.fr  Canal 1 : 0 :: 17:49:46.555450
+ linkweb.fr  Canal 2 : 0 :: 17:49:47.326433
+ linkweb.fr  Canal 3 : 0 :: 17:49:47.988175
+ linkweb.fr  Canal 1 : 0 :: 17:49:48.685959
+ linkweb.fr  Canal 2 : 0 :: 17:49:51.323728
+ linkweb.fr  Canal 3 : 0 :: 17:49:51.934130
+ linkweb.fr  Canal 1 : 0 :: 17:49:52.569915
+ linkweb.fr  Canal 2 : 0 :: 17:49:53.201081
+ linkweb.fr  Canal 3 : 0 :: 17:49:53.826662
+ linkweb.fr  Canal 1 : 0 :: 17:49:54.459776
+ linkweb.fr  Canal 2 : 0 :: 17:49:57.107673
+ linkweb.fr  Canal 3 : 0 :: 17:49:57.745166
+ linkweb.fr  Canal 1 : 0 :: 17:49:58.361511
+ linkweb.fr  Canal 2 : 0 :: 17:49:58.999506
+ linkweb.fr  Canal 3 : 0 :: 17:49:59.664134
+ linkweb.fr  Canal 1 :  :: 17:50:00.828042
+ linkweb.fr  Canal 1 : 0 :: 17:51:50.447764
+ linkweb.fr  Canal 2 : 0 :: 17:51:51.090161
+ linkweb.fr  Canal 3 : 0 :: 17:51:51.738704
+ linkweb.fr  Canal 1 : 0 :: 18:02:41.605100
+ linkweb.fr  Canal 2 : 0 :: 18:02:42.267259
+ linkweb.fr  Canal 3 : 0 :: 18:02:42.964216

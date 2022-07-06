@@ -26,13 +26,13 @@ class CheckDomainsCommand extends Command
     use DateTrait;
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $time = $this->getTodayFormatted();
+        $output->writeln('Execution : ' . $time->format('d-m-Y H:i'));
 
         $controller = new SnapController($this->manager);
         $result = $controller->launchConnexion();
         $output->writeln($result);
-        $time = $this->getTodayFormatted();
-        // outputs a message followed by a "\n"
-        $output->writeln('Execution : ' . $time->format('d-m-Y H:i'));
+
         if($result['return']){
             $output->writeln('Tentative faite sur ' . $result['domain']);
         } else {
