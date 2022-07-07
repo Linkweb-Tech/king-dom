@@ -37,20 +37,18 @@ class SnapController extends AbstractController
         $today = $this->getTodayFormatted();
         $deadline = $this->getTodayFormatted()->modify("20 minutes");
         $domain = $minos->checkIfItsTime();
-    dump($domain);
+        if(!$domain) {
+            dump('Aucun domain à snaper !');
+            return ['return' => false, 'domain' => $domain ];
+        }
         //$domain = 'linkweb.fr';
         $altar = 'rhada';
         $exit = 'no';
-        dump($exit);
-        //file_put_contents('/Users/nicolas_candelon/Documents/Projects/king-dom/logs/result-'. $domain .'.txt', "\nDébut du process pour :  " . $domain , FILE_APPEND);
         while( $exit === 'no' ){
-            dump('on y est ');
             $now  = $this->getTodayFormatted();
             if($now->format('H:i') === $deadline->format('H:i')){
                 dump('Session terminée pour le ' . $domain);
-                $minos->killConnection($domain);
-                $rhadamanthe->killConnection($domain);
-                $eaques->killConnection($domain);
+                $this->killAllConnexions($minos, $rhadamanthe, $eaques, $domain);
                 $exit = 'yes';
             }
             if($altar === 'rhada'){
@@ -58,7 +56,6 @@ class SnapController extends AbstractController
                 usleep(460000);
                 $rhadaResult = $rhadamanthe->checkDomain($domain);
                 file_put_contents('/Users/nicolas_candelon/Documents/Projects/king-dom/logs/result-'. $domain .'.txt', "\n $domain  Canal 1 : " . $rhadaResult .' :: ' .  $time->format('H:i:s.u'), FILE_APPEND);
-                //var_dump(\DateTime::createFromFormat('U.u', microtime(true)));
                 $altar = 'eaques';
                 if($rhadaResult == true){
                     echo 'Eaques snipe le domaine';

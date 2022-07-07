@@ -36,19 +36,7 @@ trait DateTrait
         } else {
             $domain['launchTime'] =  $expiryTime->format('H') . ':22';
         }
-//        if($redemption) {
-//            $domain['expiryDate'] = date("d/m/Y", strtotime('+30 days', strtotime($date)));
-//        } else {
-//            $domain['expiryDate'] = date("d/m/Y", strtotime($date));
-//        }
-//
-//        $domain['expiryTime']= date("H:i:s", strtotime($date));
-//        $minute = date('i', strtotime($date));
-//        if($minute > '32') {
-//            $domain['launchTime'] = date("H", strtotime("+1 hour", strtotime($date))) . ':22';
-//        } else {
-//            $domain['launchTime'] = date("H", strtotime($date)). ':22';
-//        }
+
         return $domain;
     }
 

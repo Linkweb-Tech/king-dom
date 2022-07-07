@@ -33,10 +33,10 @@ class CheckDomainsCommand extends Command
         $result = $controller->launchConnexion();
         $output->writeln($result);
 
-        if($result['return']){
+        if($result['return'] ){
             $output->writeln('Tentative faite sur ' . $result['domain']);
         } else {
-            $output->writeln('Aucune tentative envoyée sur ' . $result ['domain']);
+            $output->writeln('Aucune tentative envoyée...');
         }
 
         return Command::SUCCESS;
