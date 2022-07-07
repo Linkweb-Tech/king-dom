@@ -35,10 +35,10 @@ class SnapController extends AbstractController
         $rhadamanthe->createConnexion('Rhadamanthe');
         $eaques->createConnexion('Eaques');
         $today = $this->getTodayFormatted();
-        $deadline = $this->getTodayFormatted()->modify("1 minute");
-        //$domain = $minos->checkIfItsTime();
-
-        $domain = 'linkweb.fr';
+        $deadline = $this->getTodayFormatted()->modify("20 minutes");
+        $domain = $minos->checkIfItsTime();
+    dump($domain);
+        //$domain = 'linkweb.fr';
         $altar = 'rhada';
         $exit = 'no';
         dump($exit);
@@ -46,8 +46,6 @@ class SnapController extends AbstractController
         while( $exit === 'no' ){
             dump('on y est ');
             $now  = $this->getTodayFormatted();
-            dump($now->format('H:i'));
-            dump($deadline->format('H:i'));
             if($now->format('H:i') === $deadline->format('H:i')){
                 dump('Session terminée pour le ' . $domain);
                 $minos->killConnection($domain);
