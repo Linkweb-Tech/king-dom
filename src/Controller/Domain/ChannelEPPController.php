@@ -29,9 +29,6 @@ class ChannelEPPController extends AbstractController
         $this->login = $_ENV['LOGIN'];
         $this->password = $_ENV['PASSWORD'];
         $this->manager = $entityManager;
-        //$kernel = $GLOBALS['app'];
-        //$container = $kernel->getContainer();
-
 
     }
 
@@ -70,7 +67,8 @@ class ChannelEPPController extends AbstractController
     public function createConnexion(string $name)
     {
         $this->name = $name;
-        $context = stream_context_create(array('ssl' => array('local_cert' => '/Users/nicolas_candelon/Documents/Projects/king-dom/src/Controller/Domain/LINKWEB_SARL_afnic_cert+key.pem',"verify_peer" => false,"verify_peer_name"=>false)));
+        $context = stream_context_create(array('ssl' => array('local_cert' => '/Users/nicolas_candelon/Documents/Projects/king-dom/src/Controller/Domain/LINKWEB_SARL_afnic_cert+key.pem',"verify_peer" => false,"verify_peer_name"=>true)));
+
         $this->fp = stream_socket_client('ssl://'.$this->host.':'.$this->port, $errno, $errstr, 30, STREAM_CLIENT_CONNECT, $context);
         $xlogin = htmlspecialchars($this->login, ENT_XML1);
         $xpw = htmlspecialchars($this->password, ENT_XML1);
@@ -78,9 +76,9 @@ class ChannelEPPController extends AbstractController
             exit("ERROR: $errno - $errstr<br />\n");
         }
         $frame = $this->receive($this->fp);
-        $buffer = "<?xml version='1.0' encoding='UTF-8'?><epp xmlns='urn:ietf:params:xml:ns:epp-1.0' >
+        $buffer = "<?xml version='1.0' encoding='UTF-8'  standalone='no'?><epp xmlns='urn:ietf:params:xml:ns:epp-1.0' >
             <command>
-                <login><clID>$xlogin</clID><pw>$xpw</pw><options><version>1.0</version><lang>en</lang></options><svcs><objURI>urn:ietf:params:xml:ns:contact-1.0</objURI><objURI>urn:ietf:params:xml:ns:domain-1.0</objURI><objURI>urn:ietf:params:xml:ns:host-1.0</objURI><svcExtension><extURI>urn:ietf:params:xml:ns:rgp-1.0</extURI><extURI>http://www.afnic.fr/xml/epp/frnic-1.4</extURI></svcExtension></svcs></login>
+                <login><clID>$xlogin</clID><pw>$xpw</pw><options><version>1.0</version><lang>fr</lang></options><svcs><objURI>urn:ietf:params:xml:ns:contact-1.0</objURI><objURI>urn:ietf:params:xml:ns:domain-1.0</objURI><objURI>urn:ietf:params:xml:ns:host-1.0</objURI><svcExtension><extURI>urn:ietf:params:xml:ns:rgp-1.0</extURI><extURI>http://www.afnic.fr/xml/epp/frnic-1.4</extURI></svcExtension></svcs></login>
             </command>
             </epp>";
         fwrite($this->fp, pack('N', 4 + strlen($buffer)));
@@ -88,6 +86,7 @@ class ChannelEPPController extends AbstractController
         $frame = $this->receive($this->fp);
         $connexion['name'] = $this->name;
         $connexion['fp'] = $this->fp;
+
         return true;
     }
 
@@ -97,6 +96,7 @@ class ChannelEPPController extends AbstractController
      * @return mixed
      */
     public function checkdomain($domain){
+
         $buffer3 =  "<?xml version='1.0' encoding='UTF-8'?><epp xmlns='urn:ietf:params:xml:ns:epp-1.0' >
            <command>
              <check>
@@ -110,7 +110,7 @@ class ChannelEPPController extends AbstractController
         fwrite($this->fp, pack('N', 4 + strlen($buffer3)));
         fwrite($this->fp, $buffer3);
         $frame = $this->receive($this->fp);
-        //$xml = simplexml_load_string($frame);
+
         $parsed = $this->get_string_between($frame, 'avail="', '">');
 
         return $parsed;

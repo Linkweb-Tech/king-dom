@@ -45,7 +45,6 @@ trait DateTrait
     {
         $today = new \DateTime(date("d-m-Y H:i"));
         $today->setTimezone(new \DateTimeZone('Europe/Paris'));
-
         return $today;
     }
 

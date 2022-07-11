@@ -22,76 +22,96 @@ class SnapController extends AbstractController
 
     use DateTrait;
     use DomainTrait;
+
+    /**
+     * @throws \Exception
+     */
     #[Route('/create-connexion', name:'create_connexion')]
     public function launchConnexion(): array
     {
 
+        // Instance of Channel
+        $hypnos = new ChannelRushEPPController($this->manager);
         $rhadamanthe= new ChannelEPPController($this->manager);
         $eaques = new ChannelEPPController($this->manager);
         $minos = new ChannelEPPController($this->manager);
 
-
-        $minos->createConnexion('Minos');
+        // Connexions of all Channel
         $rhadamanthe->createConnexion('Rhadamanthe');
         $eaques->createConnexion('Eaques');
+        $minos->createConnexion('Minos');
+        $hypnos->createConnexion('Hypnos');
+
+
         $today = $this->getTodayFormatted();
         $deadline = $this->getTodayFormatted()->modify("20 minutes");
-        $domain = $minos->checkIfItsTime();
+        $domain = $hypnos->checkIfItsTime();
+
         if(!$domain) {
             dump('Aucun domain à snaper !');
             return ['return' => false, 'domain' => $domain ];
         }
-        //$domain = 'linkweb.fr';
-        $altar = 'rhada';
+
+       $altar = 'rhada';
         $exit = 'no';
         while( $exit === 'no' ){
             $now  = $this->getTodayFormatted();
             if($now->format('H:i') === $deadline->format('H:i')){
                 dump('Session terminée pour le ' . $domain);
-                $this->killAllConnexions($minos, $rhadamanthe, $eaques, $domain);
+                $this->killAllConnexions($minos, $rhadamanthe, $eaques, $hypnos, $domain);
                 $exit = 'yes';
             }
             if($altar === 'rhada'){
                $time =  $this->getTimeInMili();
-                usleep(460000);
+                usleep(340000);
                 $rhadaResult = $rhadamanthe->checkDomain($domain);
                 file_put_contents('/Users/nicolas_candelon/Documents/Projects/king-dom/logs/result-'. $domain .'.txt', "\n $domain  Canal 1 : " . $rhadaResult .' :: ' .  $time->format('H:i:s.u'), FILE_APPEND);
                 $altar = 'eaques';
                 if($rhadaResult == true){
                     echo 'Eaques snipe le domaine';
                     $eaques->snipeDomain($domain);
-                    $this->killAllConnexions($minos, $rhadamanthe, $eaques, $domain);
+                   $this->killAllConnexions($minos, $rhadamanthe, $eaques, $hypnos, $domain);
                     return ['return' => true, 'domain' => $domain ];
                 }
-                //$exit = $rhadaResult;
             } elseif($altar === 'eaques') {
                 $time =  $this->getTimeInMili();
-                usleep(460000);
+                usleep(340000);
                 $eaquesResult = $eaques->checkDomain($domain);
                 file_put_contents('/Users/nicolas_candelon/Documents/Projects/king-dom/logs/result-'. $domain .'.txt', "\n $domain  Canal 2 : " . $eaquesResult.' :: ' . $time->format('H:i:s.u'), FILE_APPEND);
-                $altar = 'minos';
+                $altar = 'hypnos';
                 if($eaquesResult === true){
                     echo 'Eaques snipe le domaine';
-                    $minos->snipeDomain($domain);
-                    $this->killAllConnexions($minos, $rhadamanthe, $eaques, $domain);
+                    $hypnos->snipeDomain($domain);
+                   $this->killAllConnexions($minos, $rhadamanthe, $eaques, $hypnos,  $domain);
                     return ['return' => true, 'domain' => $domain ];
                 }
-                //$exit = $eaquesResult;
-            } else {
+            } elseif ($altar === 'hypnos'){
                 $time =  $this->getTimeInMili();
-                usleep(460000);
+                usleep(340000);
+                $hypnosResult = $hypnos->checkDomain($domain);
+                file_put_contents('/Users/nicolas_candelon/Documents/Projects/king-dom/logs/result-'. $domain .'.txt', "\n $domain  Canal 3 : " . $hypnosResult .' :: ' . $time->format('H:i:s.u'), FILE_APPEND );
+                $altar = 'minos';
+                if($hypnosResult === true){
+                    echo 'Rhadamanthe snipe le domaine';
+                    $minos->snipeDomain($domain);
+                  $this->killAllConnexions($minos, $rhadamanthe, $eaques, $hypnos,  $domain);
+                    return ['return' => true, 'domain' => $domain ];
+               }
+            } elseif($altar = 'minos'){
+                $time =  $this->getTimeInMili();
+                usleep(340000);
                 $minosResult = $minos->checkDomain($domain);
-                file_put_contents('/Users/nicolas_candelon/Documents/Projects/king-dom/logs/result-'. $domain .'.txt', "\n $domain  Canal 3 : " . $minosResult .' :: ' . $time->format('H:i:s.u'), FILE_APPEND );
+                file_put_contents('/Users/nicolas_candelon/Documents/Projects/king-dom/logs/result-'. $domain .'.txt', "\n $domain  Canal 4 : " . $minosResult .' :: ' . $time->format('H:i:s.u'), FILE_APPEND );
                 $altar = 'rhada';
-                if($eaquesResult === true){
-                    echo 'Eaques snipe le domaine';
+                if($minosResult === true){
+                    echo 'Rhadamanthe snipe le domaine';
                     $rhadamanthe->snipeDomain($domain);
-                    $this->killAllConnexions($minos, $rhadamanthe, $eaques, $domain);
+                    $this->killAllConnexions($minos, $rhadamanthe, $eaques, $hypnos,  $domain);
                     return ['return' => true, 'domain' => $domain ];
                 }
-                //$exit = $minosResult;
-            }
+            } else {
 
+            }
         }
 
         return ['return' => false, 'domain' => $domain ];
