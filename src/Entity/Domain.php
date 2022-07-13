@@ -33,6 +33,15 @@ class Domain
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $launchTime;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $lastUpdate;
+
+    #[ORM\Column(type: 'boolean')]
+    private $hold;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $status;
+
 
     public function getId(): ?int
     {
@@ -83,6 +92,42 @@ class Domain
     public function setLaunchTime(?string $launchTime): self
     {
         $this->launchTime = $launchTime;
+
+        return $this;
+    }
+
+    public function getLastUpdate(): ?string
+    {
+        return $this->lastUpdate;
+    }
+
+    public function setLastUpdate(string $lastUpdate): self
+    {
+        $this->lastUpdate = $lastUpdate;
+
+        return $this;
+    }
+
+    public function isHold(): ?bool
+    {
+        return $this->hold;
+    }
+
+    public function setHold(bool $hold): self
+    {
+        $this->hold = $hold;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }

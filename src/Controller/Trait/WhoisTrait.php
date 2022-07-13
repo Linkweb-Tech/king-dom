@@ -15,13 +15,13 @@ trait WhoisTrait
         $domainStatus = $this->getStatusFromWhois($whois, $name);
         $hold = $this->get_string_between($whois,"hold:", "\n");
         $hold = trim($hold) === 'YES';
+        $lastUpdateDate = $this->get_string_between($whois,"last-update:", "\n");
+        $lastUpdateDateFormatted = new \DateTime(date("Y-m-d H:i", strtotime($lastUpdateDate)));
         if($domainStatus === 'REDEMPTION'  ){
             $redemption = true;
-            $lastUpdateDate = $this->get_string_between($whois,"last-update:", "\n");
             $return = $this->formatWhoisDate(trim($lastUpdateDate), $redemption, $hold);
         } elseif ($domainStatus === 'DELETED' ){
             $redemption = false;
-            $lastUpdateDate = $this->get_string_between($whois,"last-update:", "\n");
             $return = $this->formatWhoisDate(trim($lastUpdateDate), $redemption, $hold);
         } else {
             $redemption = false;
@@ -29,6 +29,9 @@ trait WhoisTrait
             $return = $this->formatWhoisDate(trim($expireDate), $redemption, $hold);
         }
         $return['status']  = trim($domainStatus);
+        $return['name'] = trim(htmlspecialchars($name));
+        $return['lastUpdate'] = $lastUpdateDateFormatted->format('d/m/Y');
+        $return['hold'] = $hold;
         return $return;
     }
 
