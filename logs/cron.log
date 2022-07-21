@@ -10253,3 +10253,199 @@ Aucune tentative envoyée...
       cleared.                                                                  
 
 2022-07-20T15:51:02+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+Execution : 20-07-2022 18:27
+"Aucun domain à snaper !"
+
+
+Aucune tentative envoyée...
+2022-07-20T16:27:04+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+
+ // Clearing the cache for the production environment with debug                
+ // true                                                                        
+
+ [OK] Cache for the "production" environment (debug=true) was successfully      
+      cleared.                                                                  
+
+2022-07-20T16:51:04+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+Execution : 20-07-2022 19:27
+"Aucun domain à snaper !"
+
+
+Aucune tentative envoyée...
+
+ // Clearing the cache for the production environment with debug                
+ // true                                                                        
+
+ [OK] Cache for the "production" environment (debug=true) was successfully      
+      cleared.                                                                  
+
+2022-07-20T17:51:03+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+Execution : 20-07-2022 20:27
+"Aucun domain à snaper !"
+
+
+Aucune tentative envoyée...
+
+ // Clearing the cache for the production environment with debug                
+ // true                                                                        
+
+ [OK] Cache for the "production" environment (debug=true) was successfully      
+      cleared.                                                                  
+
+2022-07-20T18:51:03+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+Execution : 20-07-2022 21:27
+"Aucun domain à snaper !"
+
+
+Aucune tentative envoyée...
+
+ // Clearing the cache for the production environment with debug                
+ // true                                                                        
+
+ [OK] Cache for the "production" environment (debug=true) was successfully      
+      cleared.                                                                  
+
+2022-07-20T19:51:04+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+Execution : 20-07-2022 22:27
+"Aucun domain à snaper !"
+
+
+Aucune tentative envoyée...
+
+ // Clearing the cache for the production environment with debug                
+ // true                                                                        
+
+ [OK] Cache for the "production" environment (debug=true) was successfully      
+      cleared.                                                                  
+
+2022-07-20T20:51:03+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+Execution : 20-07-2022 23:27
+"Aucun domain à snaper !"
+
+
+Aucune tentative envoyée...
+
+ // Clearing the cache for the production environment with debug                
+ // true                                                                        
+
+ [OK] Cache for the "production" environment (debug=true) was successfully      
+      cleared.                                                                  
+
+2022-07-20T21:51:04+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+Execution : 21-07-2022 00:27
+"Aucun domain à snaper !"
+
+
+Aucune tentative envoyée...
+
+ // Clearing the cache for the production environment with debug                
+ // true                                                                        
+
+ [OK] Cache for the "production" environment (debug=true) was successfully      
+      cleared.                                                                  
+
+2022-07-20T22:51:03+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+Execution : 21-07-2022 01:27
+"Aucun domain à snaper !"
+
+
+Aucune tentative envoyée...
+
+ // Clearing the cache for the production environment with debug                
+ // true                                                                        
+
+ [OK] Cache for the "production" environment (debug=true) was successfully      
+      cleared.                                                                  
+
+2022-07-20T23:51:04+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+Execution : 21-07-2022 02:27
+"Aucun domain à snaper !"
+
+
+Aucune tentative envoyée...
+
+ // Clearing the cache for the production environment with debug                
+ // true                                                                        
+
+ [OK] Cache for the "production" environment (debug=true) was successfully      
+      cleared.                                                                  
+
+2022-07-21T00:51:03+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+Execution : 21-07-2022 03:27
+"Aucun domain à snaper !"
+
+
+Aucune tentative envoyée...
+
+ // Clearing the cache for the production environment with debug                
+ // true                                                                        
+
+ [OK] Cache for the "production" environment (debug=true) was successfully      
+      cleared.                                                                  
+
+2022-07-21T01:51:03+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+Execution : 21-07-2022 04:27
+"Aucun domain à snaper !"
+
+
+Aucune tentative envoyée...
+
+ // Clearing the cache for the production environment with debug                
+ // true                                                                        
+
+ [OK] Cache for the "production" environment (debug=true) was successfully      
+      cleared.                                                                  
+
+2022-07-21T02:51:04+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+Execution : 21-07-2022 05:27
+"Aucun domain à snaper !"
+
+
+Aucune tentative envoyée...
+
+ // Clearing the cache for the production environment with debug                
+ // true                                                                        
+
+ [OK] Cache for the "production" environment (debug=true) was successfully      
+      cleared.                                                                  
+
+2022-07-21T03:51:04+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+Execution : 21-07-2022 06:27
+"Aucun domain à snaper !"
+
+
+Aucune tentative envoyée...
+
+ // Clearing the cache for the production environment with debug                
+ // true                                                                        
+
+ [OK] Cache for the "production" environment (debug=true) was successfully      
+      cleared.                                                                  
+
+2022-07-21T04:51:03+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+Execution : 21-07-2022 07:27
+"Aucun domain à snaper !"
+
+
+Aucune tentative envoyée...
+
+ // Clearing the cache for the production environment with debug                
+ // true                                                                        
+
+ [OK] Cache for the "production" environment (debug=true) was successfully      
+      cleared.                                                                  
+
+2022-07-21T05:51:03+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+Execution : 21-07-2022 08:27
+"Aucun domain à snaper !"
+
+
+Aucune tentative envoyée...
+
+ // Clearing the cache for the production environment with debug                
+ // true                                                                        
+
+ [OK] Cache for the "production" environment (debug=true) was successfully      
+      cleared.                                                                  
+
+2022-07-21T06:51:04+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
