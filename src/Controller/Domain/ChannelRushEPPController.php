@@ -26,7 +26,7 @@ class ChannelRushEPPController extends ChannelEPPController
     public function createConnexion(string $name)
     {
         $this->name = $name;
-        $context = stream_context_create(array('ssl' => array('local_cert' => '/Users/nicolas_candelon/Documents/Projects/king-dom/src/Controller/Domain/LINKWEB_SARL_afnic_cert+key.pem',"verify_peer" => false,"verify_peer_name"=>true)));
+        $context = stream_context_create(array('ssl' => array('local_cert' => $this->cert_url.'src/Controller/Domain/LINKWEB_SARL_afnic_cert+key.pem',"verify_peer" => false,"verify_peer_name"=>true)));
 
         $this->fp = stream_socket_client('ssl://'.$this->host.':'.$this->port, $errno, $errstr, 30, STREAM_CLIENT_CONNECT, $context);
         $xlogin = htmlspecialchars($this->login, ENT_XML1);

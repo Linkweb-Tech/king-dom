@@ -29,6 +29,7 @@ class ChannelEPPController extends AbstractController
         $this->login = $_ENV['LOGIN'];
         $this->password = $_ENV['PASSWORD'];
         $this->manager = $entityManager;
+        $this->cert_url = $_ENV['CERT_URL'];
 
     }
 
@@ -51,7 +52,7 @@ class ChannelEPPController extends AbstractController
             $connexionTime =  new \DateTime(date("d-m-Y H:i", strtotime($completeTimeFormatted)));
             //dump($connexionTime->format('d/m/Y H:i') , $today->format('d/m/Y H:i'));
             if($today->format('d/m/Y H:i') >= $connexionTime->format('d/m/Y H:i') && $today->format('d/m/Y H:i') < $connexionTime->modify('20 minutes')->format('d/m/Y H:i') ){
-                file_put_contents('/Users/nicolas_candelon/Documents/Projects/king-dom/result.txt', "\n Début du process pour ". $domainName , FILE_APPEND);
+                file_put_contents($this->cert_url.'result.txt', "\n Début du process pour ". $domainName , FILE_APPEND);
                 return $domain->getName();
             }
         }
@@ -67,7 +68,7 @@ class ChannelEPPController extends AbstractController
     public function createConnexion(string $name)
     {
         $this->name = $name;
-        $context = stream_context_create(array('ssl' => array('local_cert' => '/Users/nicolas_candelon/Documents/Projects/king-dom/src/Controller/Domain/LINKWEB_SARL_afnic_cert+key.pem',"verify_peer" => false,"verify_peer_name"=>true)));
+        $context = stream_context_create(array('ssl' => array('local_cert' => $this->cert_url.'src/Controller/Domain/LINKWEB_SARL_afnic_cert+key.pem',"verify_peer" => false,"verify_peer_name"=>true)));
 
         $this->fp = stream_socket_client('ssl://'.$this->host.':'.$this->port, $errno, $errstr, 30, STREAM_CLIENT_CONNECT, $context);
         $xlogin = htmlspecialchars($this->login, ENT_XML1);
@@ -158,13 +159,13 @@ class ChannelEPPController extends AbstractController
         fwrite($this->fp, pack('N', 4 + strlen($buffer)));
         fwrite($this->fp, $buffer);
         $frame = $this->receive($this->fp);
-        file_put_contents('/Users/nicolas_candelon/Documents/Projects/king-dom/result-'. $domain .'.txt', json_encode($frame), FILE_APPEND);
+        file_put_contents($this->cert_url.'logs/result-'. $domain .'.txt', json_encode($frame), FILE_APPEND);
         return $frame;
     }
 
     public function killConnection(string $domain)
     {
-        $context = stream_context_create(array('ssl' => array('local_cert' => '/Users/nicolas_candelon/Documents/Projects/king-dom/src/Controller/Domain/LINKWEB_SARL_afnic_cert+key.pem',"verify_peer" => false,"verify_peer_name"=>false)));
+        $context = stream_context_create(array('ssl' => array('local_cert' => $this->cert_url.'src/Controller/Domain/LINKWEB_SARL_afnic_cert+key.pem',"verify_peer" => false,"verify_peer_name"=>false)));
         $this->fp = stream_socket_client('ssl://'.$this->host.':'.$this->port, $errno, $errstr, 30, STREAM_CLIENT_CONNECT, $context);
         $buffer = "<?xml version='1.0' encoding='UTF-8'?>
             <epp xmlns='urn:ietf:params:xml:ns:epp-1.0' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='urn:ietf:params:xml:ns:epp-1.0 epp-1.0.xsd'>
@@ -177,7 +178,6 @@ class ChannelEPPController extends AbstractController
         fwrite($this->fp, $buffer);
         $frame = $this->receive($this->fp);
         dump($frame);
-        //file_put_contents('/Users/nicolas_candelon/Documents/Projects/king-dom/result-'. $domain .'.txt', json_encode($frame), FILE_APPEND);
         return $frame;
     }
 

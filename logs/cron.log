@@ -10449,3 +10449,22 @@ Aucune tentative envoyée...
       cleared.                                                                  
 
 2022-07-21T06:51:04+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+Execution : 22-07-2022 11:27
+[critical] Error thrown while running command "'app:find-domain'". Message: "Warning: Undefined array key "CERT_URL""
+
+
+In ChannelEPPController.php line 32:
+                                           
+  Warning: Undefined array key "CERT_URL"  
+                                           
+
+app:find-domains
+
+
+ // Clearing the cache for the production environment with debug                
+ // true                                                                        
+
+ [OK] Cache for the "production" environment (debug=true) was successfully      
+      cleared.                                                                  
+
+2022-07-22T09:51:05+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.

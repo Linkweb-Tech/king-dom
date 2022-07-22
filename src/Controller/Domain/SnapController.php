@@ -18,6 +18,7 @@ class SnapController extends AbstractController
     public function __construct(EntityManagerInterface $manager)
     {
         $this->manager = $manager;
+        $this->cert_url = $_ENV['CERT_URL'];
     }
 
     use DateTrait;
@@ -65,7 +66,7 @@ class SnapController extends AbstractController
                $time =  $this->getTimeInMili();
                 usleep(340000);
                 $rhadaResult = $rhadamanthe->checkDomain($domain);
-                file_put_contents('/Users/nicolas_candelon/Documents/Projects/king-dom/logs/result-'. $domain .'.txt', "\n $domain  Canal 1 : " . $rhadaResult .' :: ' .  $time->format('H:i:s.u'), FILE_APPEND);
+                file_put_contents($this->cert_url.'logs/result-'. $domain .'.txt', "\n $domain  Canal 1 : " . $rhadaResult .' :: ' .  $time->format('H:i:s.u'), FILE_APPEND);
                 $altar = 'eaques';
                 if($rhadaResult == true){
                     echo 'Eaques snipe le domaine';
@@ -77,7 +78,7 @@ class SnapController extends AbstractController
                 $time =  $this->getTimeInMili();
                 usleep(340000);
                 $eaquesResult = $eaques->checkDomain($domain);
-                file_put_contents('/Users/nicolas_candelon/Documents/Projects/king-dom/logs/result-'. $domain .'.txt', "\n $domain  Canal 2 : " . $eaquesResult.' :: ' . $time->format('H:i:s.u'), FILE_APPEND);
+                file_put_contents($this->cert_url.'logs/result-'. $domain .'.txt', "\n $domain  Canal 2 : " . $eaquesResult.' :: ' . $time->format('H:i:s.u'), FILE_APPEND);
                 $altar = 'hypnos';
                 if($eaquesResult === true){
                     echo 'Eaques snipe le domaine';
@@ -89,7 +90,7 @@ class SnapController extends AbstractController
                 $time =  $this->getTimeInMili();
                 usleep(340000);
                 $hypnosResult = $hypnos->checkDomain($domain);
-                file_put_contents('/Users/nicolas_candelon/Documents/Projects/king-dom/logs/result-'. $domain .'.txt', "\n $domain  Canal 3 : " . $hypnosResult .' :: ' . $time->format('H:i:s.u'), FILE_APPEND );
+                file_put_contents($this->cert_url.'logs/result-'. $domain .'.txt', "\n $domain  Canal 3 : " . $hypnosResult .' :: ' . $time->format('H:i:s.u'), FILE_APPEND );
                 $altar = 'minos';
                 if($hypnosResult === true){
                     echo 'Rhadamanthe snipe le domaine';
@@ -101,7 +102,7 @@ class SnapController extends AbstractController
                 $time =  $this->getTimeInMili();
                 usleep(340000);
                 $minosResult = $minos->checkDomain($domain);
-                file_put_contents('/Users/nicolas_candelon/Documents/Projects/king-dom/logs/result-'. $domain .'.txt', "\n $domain  Canal 4 : " . $minosResult .' :: ' . $time->format('H:i:s.u'), FILE_APPEND );
+                file_put_contents($this->cert_url.'logs/result-'. $domain .'.txt', "\n $domain  Canal 4 : " . $minosResult .' :: ' . $time->format('H:i:s.u'), FILE_APPEND );
                 $altar = 'rhada';
                 if($minosResult === true){
                     echo 'Rhadamanthe snipe le domaine';
