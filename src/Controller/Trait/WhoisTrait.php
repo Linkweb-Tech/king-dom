@@ -2,6 +2,8 @@
 
 namespace App\Controller\Trait;
 use App\Controller\Trait\DateTrait;
+use Symfony\Component\Process\Process;
+
 /**
  * Trait WhoisTrait.
  */
@@ -10,8 +12,10 @@ trait WhoisTrait
     use DateTrait;
     protected function whois(String $name)
     {
-
-        $whois = shell_exec("whois $name");
+        $process = new Process(["whois $name"]);
+        $process->start();
+        $whois = $process->getOutput();
+        //$whois = shell_exec("whois $name");
         $domainStatus = $this->getStatusFromWhois($whois, $name);
         $hold = $this->get_string_between($whois,"hold:", "\n");
         $hold = trim($hold) === 'YES';
