@@ -10468,3 +10468,15 @@ app:find-domains
       cleared.                                                                  
 
 2022-07-22T09:51:05+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.
+Execution : 22-07-2022 12:27
+"Aucun domain à snaper !"
+
+
+Aucune tentative envoyée...
+
+ // Clearing the cache for the dev environment with debug                       
+ // true                                                                        
+
+ [OK] Cache for the "dev" environment (debug=true) was successfully cleared.    
+
+2022-07-22T10:51:04+00:00 [info] User Deprecated: The "Symfony\Bridge\Doctrine\Logger\DbalLogger" class implements "Doctrine\DBAL\Logging\SQLLogger" that is deprecated Use {@see \Doctrine\DBAL\Logging\Middleware} or implement {@see \Doctrine\DBAL\Driver\Middleware} instead.

@@ -12,8 +12,9 @@ trait WhoisTrait
     use DateTrait;
     protected function whois(String $name)
     {
-        $process = new Process(["whois $name"]);
-        $process->start();
+        $process = new Process(["whois", $name]);
+
+        $process->run();
         $whois = $process->getOutput();
         //$whois = shell_exec("whois $name");
         $domainStatus = $this->getStatusFromWhois($whois, $name);
