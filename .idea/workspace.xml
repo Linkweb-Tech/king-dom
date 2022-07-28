@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2cec845f-e43d-41c8-8643-2b61c45e4b16" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/cron.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/cron.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Trait/WhoisTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Trait/WhoisTrait.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
