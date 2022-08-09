@@ -64,7 +64,7 @@ class SnapController extends AbstractController
             }
             if($altar === 'rhada'){
                $time =  $this->getTimeInMili();
-                usleep(360000);
+                usleep(420000);
                 $rhadaResult = $rhadamanthe->checkDomain($domain);
                 file_put_contents($this->cert_url.'logs/result-'. $domain .'.txt', "\n $domain  Canal 1 : " . $rhadaResult .' :: ' .  $time->format('H:i:s.u'), FILE_APPEND);
                 $altar = 'eaques';
@@ -76,7 +76,7 @@ class SnapController extends AbstractController
                 }
             } elseif($altar === 'eaques') {
                 $time =  $this->getTimeInMili();
-                usleep(360000);
+                usleep(420000);
                 $eaquesResult = $eaques->checkDomain($domain);
                 file_put_contents($this->cert_url.'logs/result-'. $domain .'.txt', "\n $domain  Canal 2 : " . $eaquesResult.' :: ' . $time->format('H:i:s.u'), FILE_APPEND);
                 $altar = 'hypnos';
@@ -88,7 +88,7 @@ class SnapController extends AbstractController
                 }
             } elseif ($altar === 'hypnos'){
                 $time =  $this->getTimeInMili();
-                usleep(360000);
+                usleep(420000);
                 $hypnosResult = $hypnos->checkDomain($domain);
                 file_put_contents($this->cert_url.'logs/result-'. $domain .'.txt', "\n $domain  Canal 3 : " . $hypnosResult .' :: ' . $time->format('H:i:s.u'), FILE_APPEND );
                 $altar = 'minos';
@@ -100,7 +100,7 @@ class SnapController extends AbstractController
                }
             } elseif($altar = 'minos'){
                 $time =  $this->getTimeInMili();
-                usleep(360000);
+                usleep(420000);
                 $minosResult = $minos->checkDomain($domain);
                 file_put_contents($this->cert_url.'logs/result-'. $domain .'.txt', "\n $domain  Canal 4 : " . $minosResult .' :: ' . $time->format('H:i:s.u'), FILE_APPEND );
                 $altar = 'rhada';
