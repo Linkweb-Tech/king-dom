@@ -17,8 +17,32 @@ class SnapController extends AbstractController
 
     public function __construct(EntityManagerInterface $manager)
     {
+
         $this->manager = $manager;
         $this->cert_url = $_ENV['CERT_URL'];
+        $this->availablesChannels = $_ENV['AVAILABLES_CHANNELS'];
+        $this->iteration = 1;
+        $this->channels = [];
+
+        // DEFAULT channel
+        $this->channels[1] = new ChannelEPPController($this->manager);
+        $this->channels[2] = new ChannelEPPController($this->manager);
+        $this->channels[3] = new ChannelEPPController($this->manager);
+
+        // RUSH channel
+        if($this->availablesChannels > 3){
+            for ($i = 4; $i <= $this->availablesChannels ; $i++) {
+                $this->channels[$i] = new ChannelRushEPPController($this->manager);
+            }
+        }
+
+        //Kill Connexions
+        $this->killAllConnexions($this->channels, '');
+
+        // Create Connexion for all channel
+        foreach ($this->channels as $channel){
+            $channel->createConnexion('');
+        }
     }
 
     use DateTrait;
@@ -31,95 +55,54 @@ class SnapController extends AbstractController
     public function launchConnexion(): array
     {
 
-        // Instance of Channel
-        $hypnos = new ChannelRushEPPController($this->manager);
-        $rhadamanthe= new ChannelEPPController($this->manager);
-        $eaques = new ChannelEPPController($this->manager);
-        $minos = new ChannelEPPController($this->manager);
-
-        // Connexions of all Channel
-        $rhadamanthe->createConnexion('Rhadamanthe');
-        $eaques->createConnexion('Eaques');
-        $minos->createConnexion('Minos');
-        $hypnos->createConnexion('Hypnos');
-
-
         $today = $this->getTodayFormatted();
         $deadline = $this->getTodayFormatted()->modify("20 minutes");
-        $domain = $hypnos->checkIfItsTime();
+        $first = $this->channels[1];
+        $domain = $first->checkIfItsTime();
 
-        if(!$domain) {
+
+        if(!$domain->getName()) {
             dump('Aucun domain à snaper !');
-            return ['return' => false, 'domain' => $domain ];
+            $this->killAllConnexions($this->channels, '');
+            return ['return' => false, 'domain' => $domain->getName() ];
         }
 
-       $altar = 'rhada';
+        //$altar = 'rhada';
         $exit = 'no';
+        $domainName = $domain->getName();
+
         while( $exit === 'no' ){
             $now  = $this->getTodayFormatted();
             if($now->format('H:i') === $deadline->format('H:i')){
-                dump('Session terminée pour le ' . $domain);
-                $this->killAllConnexions($minos, $rhadamanthe, $eaques, $hypnos, $domain);
+                dump('Session terminée pour le ' . $domainName);
+                $this->killAllConnexions($this->channels, $domainName);
                 $exit = 'yes';
             }
-            if($altar === 'rhada'){
-               $time =  $this->getTimeInMili();
-                usleep(420000);
-                $rhadaResult = $rhadamanthe->checkDomain($domain);
-                file_put_contents($this->cert_url.'logs/result-'. $domain .'.txt', "\n $domain  Canal 1 : " . $rhadaResult .' :: ' .  $time->format('H:i:s.u'), FILE_APPEND);
-                $altar = 'eaques';
-                if($rhadaResult == true){
-                    echo 'Eaques snipe le domaine';
-                    $eaques->snipeDomain($domain);
-                   $this->killAllConnexions($minos, $rhadamanthe, $eaques, $hypnos, $domain);
-                    return ['return' => true, 'domain' => $domain ];
-                }
-            } elseif($altar === 'eaques') {
-                $time =  $this->getTimeInMili();
-                usleep(420000);
-                $eaquesResult = $eaques->checkDomain($domain);
-                file_put_contents($this->cert_url.'logs/result-'. $domain .'.txt', "\n $domain  Canal 2 : " . $eaquesResult.' :: ' . $time->format('H:i:s.u'), FILE_APPEND);
-                $altar = 'hypnos';
-                if($eaquesResult === true){
-                    echo 'Eaques snipe le domaine';
-                    $hypnos->snipeDomain($domain);
-                   $this->killAllConnexions($minos, $rhadamanthe, $eaques, $hypnos,  $domain);
-                    return ['return' => true, 'domain' => $domain ];
-                }
-            } elseif ($altar === 'hypnos'){
-                $time =  $this->getTimeInMili();
-                usleep(420000);
-                $hypnosResult = $hypnos->checkDomain($domain);
-                file_put_contents($this->cert_url.'logs/result-'. $domain .'.txt', "\n $domain  Canal 3 : " . $hypnosResult .' :: ' . $time->format('H:i:s.u'), FILE_APPEND );
-                $altar = 'minos';
-                if($hypnosResult === true){
-                    echo 'Rhadamanthe snipe le domaine';
-                    $minos->snipeDomain($domain);
-                  $this->killAllConnexions($minos, $rhadamanthe, $eaques, $hypnos,  $domain);
-                    return ['return' => true, 'domain' => $domain ];
-               }
-            } elseif($altar = 'minos'){
-                $time =  $this->getTimeInMili();
-                usleep(420000);
-                $minosResult = $minos->checkDomain($domain);
-                file_put_contents($this->cert_url.'logs/result-'. $domain .'.txt', "\n $domain  Canal 4 : " . $minosResult .' :: ' . $time->format('H:i:s.u'), FILE_APPEND );
-                $altar = 'rhada';
-                if($minosResult === true){
-                    echo 'Rhadamanthe snipe le domaine';
-                    $rhadamanthe->snipeDomain($domain);
-                    $this->killAllConnexions($minos, $rhadamanthe, $eaques, $hypnos,  $domain);
-                    return ['return' => true, 'domain' => $domain ];
-                }
-            } else {
+            $this->scanDomainAvailability($this->channels[$this->iteration], $domainName);
+            $this->iteration++;
+            $this->iteration = ($this->iteration > $this->availablesChannels) ? 1 : $this->iteration;
 
-            }
         }
 
         return ['return' => false, 'domain' => $domain ];
     }
 
-    private function scanDomainAvailability()
+    private function scanDomainAvailability($currentChannel, $domainName)
     {
+        $time =  $this->getTimeInMili();
+        $TIME_BETWEEN_SNAP = 1600000 / $this->availablesChannels;
 
+        usleep($TIME_BETWEEN_SNAP);
+        $checkResult = $currentChannel->checkDomain($domainName);
+        file_put_contents($this->cert_url.'logs/result-'. $domainName .'.txt', "\n $domainName  Canal " . $this->iteration . " : " . $checkResult .' :: ' . $time->format('H:i:s.u'), FILE_APPEND );
+        if($checkResult === true){
+            $next = $this->iteration + 1;
+            $nextChannel = $this->channels[$next];
+            echo 'Canal_'. $next .' snipe le domaine';
+            $nextChannel->snipeDomain($domainName);
+            $this->killAllConnexions($this->channels,  $domainName);
+            return ['return' => true, 'domain' => $domainName ];
+        }
+        return ['return' => false ];
     }
 }

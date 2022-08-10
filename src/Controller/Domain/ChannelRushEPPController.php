@@ -23,9 +23,9 @@ class ChannelRushEPPController extends ChannelEPPController
      * @param string $name
      * @return JsonResponse
      */
-    public function createConnexion(string $name)
+    public function createConnexion()
     {
-        $this->name = $name;
+       // $this->name = $name;
         $context = stream_context_create(array('ssl' => array('local_cert' => $this->cert_url.'src/Controller/Domain/LINKWEB_SARL_afnic_cert+key.pem',"verify_peer" => false,"verify_peer_name"=>true)));
 
         $this->fp = stream_socket_client('ssl://'.$this->host.':'.$this->port, $errno, $errstr, 30, STREAM_CLIENT_CONNECT, $context);
@@ -43,8 +43,9 @@ class ChannelRushEPPController extends ChannelEPPController
         fwrite($this->fp, pack('N', 4 + strlen($buffer)));
         fwrite($this->fp, $buffer);
         $frame = $this->receive($this->fp);
-        $connexion['name'] = $this->name;
+        //$connexion['name'] = $this->name;
         $connexion['fp'] = $this->fp;
+
         return true;
     }
 

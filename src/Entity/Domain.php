@@ -18,7 +18,6 @@ class Domain
     #[ORM\Id]
     #[ORM\Column(type:"bigint", unique:true)]
     #[ORM\GeneratedValue(strategy:"AUTO")]
-    #[Assert\Uuid]
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -41,6 +40,14 @@ class Domain
 
     #[ORM\Column(type: 'string', length: 255)]
     private $status;
+
+    #[ORM\Column(type: 'boolean', options: [
+        "default" => false
+    ])]
+    private $isSnapped;
+
+    #[ORM\Column(type: 'boolean')]
+    private $isOwned;
 
 
     public function getId(): ?int
@@ -128,6 +135,30 @@ class Domain
     public function setStatus(string $status): self
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function isIsSnapped(): ?bool
+    {
+        return $this->isSnapped;
+    }
+
+    public function setIsSnapped(bool $isSnapped): self
+    {
+        $this->isSnapped = $isSnapped;
+
+        return $this;
+    }
+
+    public function isIsOwned(): ?bool
+    {
+        return $this->isOwned;
+    }
+
+    public function setIsOwned(bool $isOwned): self
+    {
+        $this->isOwned = $isOwned;
 
         return $this;
     }

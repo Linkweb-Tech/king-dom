@@ -41,22 +41,24 @@ class ChannelEPPController extends AbstractController
      * @throws \Exception
      */
     #[Route('/check-domain-expiration', name: 'check-domain-expiration')]
-    public function checkIfItsTime(): string
+    public function checkIfItsTime() : Domain
     {
         $domains = $this->manager->getRepository(Domain::class)->findAll();
         $today = $this->getTodayFormatted();
         foreach ($domains as $domain){
             $domainName = $domain->getName();
+            //dump($domain);
             $completeTime = $domain->getExpiryDate().' '. $domain->getLaunchTime();
             $completeTimeFormatted = str_replace('/', '-', $completeTime);
             $connexionTime =  new \DateTime(date("d-m-Y H:i", strtotime($completeTimeFormatted)));
             //dump($connexionTime->format('d/m/Y H:i') , $today->format('d/m/Y H:i'));
             if($today->format('d/m/Y H:i') >= $connexionTime->format('d/m/Y H:i') && $today->format('d/m/Y H:i') < $connexionTime->modify('20 minutes')->format('d/m/Y H:i') ){
+
                 file_put_contents($this->cert_url.'result.txt', "\n Début du process pour ". $domainName , FILE_APPEND);
-                return $domain->getName();
+                return $domain;
             }
         }
-        return false;
+        return new Domain();
     }
 
 
@@ -65,9 +67,9 @@ class ChannelEPPController extends AbstractController
      * @param string $name
      * @return JsonResponse
      */
-    public function createConnexion(string $name)
+    public function createConnexion()
     {
-        $this->name = $name;
+        //$this->name = $name;
         $context = stream_context_create(array('ssl' => array('local_cert' => $this->cert_url.'src/Controller/Domain/LINKWEB_SARL_afnic_cert+key.pem',"verify_peer" => false,"verify_peer_name"=>true)));
 
         $this->fp = stream_socket_client('ssl://'.$this->host.':'.$this->port, $errno, $errstr, 30, STREAM_CLIENT_CONNECT, $context);
@@ -85,7 +87,7 @@ class ChannelEPPController extends AbstractController
         fwrite($this->fp, pack('N', 4 + strlen($buffer)));
         fwrite($this->fp, $buffer);
         $frame = $this->receive($this->fp);
-        $connexion['name'] = $this->name;
+        //$connexion['name'] = $this->name;
         $connexion['fp'] = $this->fp;
 
         return true;
@@ -111,7 +113,6 @@ class ChannelEPPController extends AbstractController
         fwrite($this->fp, pack('N', 4 + strlen($buffer3)));
         fwrite($this->fp, $buffer3);
         $frame = $this->receive($this->fp);
-
         $parsed = $this->get_string_between($frame, 'avail="', '">');
 
         return $parsed;
@@ -177,7 +178,7 @@ class ChannelEPPController extends AbstractController
         fwrite($this->fp, pack('N', 4 + strlen($buffer)));
         fwrite($this->fp, $buffer);
         $frame = $this->receive($this->fp);
-        dump($frame);
+
         return $frame;
     }
 
