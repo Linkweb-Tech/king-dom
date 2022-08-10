@@ -5,11 +5,10 @@ namespace App\Controller\Trait;
 use App\Controller\Domain\ChannelEPPController;
 
 trait DomainTrait {
-    protected function killAllConnexions(ChannelEPPController $minos, ChannelEPPController $rhadamanthe, ChannelEPPController $eaques, ChannelEPPController $hypnos, string $domain)
+    protected function killAllConnexions(array $channels, string $domain)
     {
-        $minos->killConnection($domain);
-        $rhadamanthe->killConnection($domain);
-        $eaques->killConnection($domain);
-        $hypnos->killConnection($domain);
+        foreach ($channels as $channel){
+            $channel->killConnection($domain);
+        }
     }
 }
