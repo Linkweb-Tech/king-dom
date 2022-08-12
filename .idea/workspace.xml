@@ -2,25 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2cec845f-e43d-41c8-8643-2b61c45e4b16" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/result-eerie.fr.txt" beforeDir="false" afterPath="$PROJECT_DIR$/logs/result-eerie.fr.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result-82studio.fr.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/result-avecjeanne.fr.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/result-eerie.fr.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/result-elangym89.fr.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/result-euronova.fr.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/result-evenements-culinaires.fr.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/result-hotel-panoramique.fr.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/result-lesmouettes-covoiturage.fr.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/result-newbeenet.fr.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/result-petit-roi.fr.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/result-quad-passion.fr.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/result.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Domain/ChannelEPPController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Domain/ChannelEPPController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Domain/ChannelRushEPPController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Domain/ChannelRushEPPController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Domain/SnapController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Domain/SnapController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Trait/DomainTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Trait/DomainTrait.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Domain.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Domain.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -285,7 +269,8 @@
       <workItem from="1657095394605" duration="53737000" />
       <workItem from="1658136036650" duration="18249000" />
       <workItem from="1659444869333" duration="1548000" />
-      <workItem from="1660052810838" duration="8491000" />
+      <workItem from="1660052810838" duration="11430000" />
+      <workItem from="1660302456889" duration="108000" />
     </task>
     <servers />
   </component>

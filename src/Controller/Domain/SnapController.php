@@ -78,7 +78,7 @@ class SnapController extends AbstractController
                 $this->killAllConnexions($this->channels, $domainName);
                 $exit = 'yes';
             }
-            $this->scanDomainAvailability($this->channels[$this->iteration], $domainName);
+            $this->scanDomainAvailability($this->channels[$this->iteration], $domain);
             $this->iteration++;
             $this->iteration = ($this->iteration > $this->availablesChannels) ? 1 : $this->iteration;
 
@@ -87,21 +87,21 @@ class SnapController extends AbstractController
         return ['return' => false, 'domain' => $domain ];
     }
 
-    private function scanDomainAvailability($currentChannel, $domainName)
+    private function scanDomainAvailability($currentChannel, Domain $domain)
     {
         $time =  $this->getTimeInMili();
-        $TIME_BETWEEN_SNAP = 1600000 / $this->availablesChannels;
+        $TIME_BETWEEN_SNAP = 1700000 / $this->availablesChannels;
 
         usleep($TIME_BETWEEN_SNAP);
-        $checkResult = $currentChannel->checkDomain($domainName);
-        file_put_contents($this->cert_url.'logs/result-'. $domainName .'.txt', "\n $domainName  Canal " . $this->iteration . " : " . $checkResult .' :: ' . $time->format('H:i:s.u'), FILE_APPEND );
+        $checkResult = $currentChannel->checkDomain($domain->getName());
+        file_put_contents($this->cert_url.'logs/result-'. $domain->getName() .'.txt', "\n $domain->getName()  Canal " . $this->iteration . " : " . $checkResult .' :: ' . $time->format('H:i:s.u'), FILE_APPEND );
         if($checkResult === true){
             $next = $this->iteration + 1;
             $nextChannel = $this->channels[$next];
             echo 'Canal_'. $next .' snipe le domaine';
-            $nextChannel->snipeDomain($domainName);
-            $this->killAllConnexions($this->channels,  $domainName);
-            return ['return' => true, 'domain' => $domainName ];
+            $nextChannel->snipeDomain($domain);
+            $this->killAllConnexions($this->channels,  $domain->getName());
+            return ['return' => true, 'domain' => $domain->getName() ];
         }
         return ['return' => false ];
     }

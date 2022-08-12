@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
 use App\Controller\Domain\DomainController;
 use App\Controller\Domain\MakeWhoisController;
 use App\Controller\Domain\SaveDomainController;
@@ -11,7 +13,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: DomainRepository::class)]
-#[ApiResource()]
+#[ApiResource]
+
+#[ApiFilter(SearchFilter::class, properties: ["throwOnInvalid" => true])]
+
 
 class Domain
 {
