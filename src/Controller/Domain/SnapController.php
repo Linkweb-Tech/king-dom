@@ -90,7 +90,7 @@ class SnapController extends AbstractController
     private function scanDomainAvailability($currentChannel, Domain $domain)
     {
         $time =  $this->getTimeInMili();
-        $TIME_BETWEEN_SNAP = 1700000 / $this->availablesChannels;
+        $TIME_BETWEEN_SNAP = 1850000 / $this->availablesChannels;
 
         usleep($TIME_BETWEEN_SNAP);
         $checkResult = $currentChannel->checkDomain($domain->getName());
