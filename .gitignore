@@ -1,10 +1,23 @@
+###> IDE files ###
+/.idea/
+/.vscode/
+###< IDE files ###
 
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
 /.env.*.local
+/.env.preprod
+/.env.prod
 /config/secrets/prod/prod.decrypt.private.php
+/config/packages/dev/monolog.yaml
 /public/bundles/
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+###> Cache files & others ###
+.DS_Store
+.php_cs.cache
+.php-cs-fixer.cache
+###< Cache files & others ###
