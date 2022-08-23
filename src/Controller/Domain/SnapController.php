@@ -1,23 +1,17 @@
 <?php
 namespace App\Controller\Domain;
 
-use App\Controller\Domain\ChannelEPPController;
 use App\Controller\Trait\DomainTrait;
 use App\Entity\Domain;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Controller\Trait\DateTrait;
 
-
-
 class SnapController extends AbstractController
 {
-
     public function __construct(EntityManagerInterface $manager)
     {
-
         $this->manager = $manager;
         $this->cert_url = $_ENV['CERT_URL'];
         $this->availablesChannels = $_ENV['AVAILABLES_CHANNELS'];

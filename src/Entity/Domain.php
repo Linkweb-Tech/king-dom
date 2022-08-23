@@ -5,17 +5,17 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\BooleanFilter;
-use App\Controller\Domain\DomainController;
 use App\Repository\DomainRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-
 #[ORM\Entity(repositoryClass: DomainRepository::class)]
-#[ApiResource]
-
+#[ORM\Table(name: 'domain')]
+#[ApiResource(
+    denormalizationContext: ['groups' => 'domain:input', 'swagger_definition_name' => 'Write'],
+    formats: ['json'],
+    normalizationContext: ['groups' => 'domain:output', 'swagger_definition_name' => 'Read']
+)]
 #[ApiFilter(BooleanFilter::class, properties: ['isOwned'])]
-
-
 class Domain
 {
     #[ORM\Id]

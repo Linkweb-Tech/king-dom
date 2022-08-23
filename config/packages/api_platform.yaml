@@ -1,7 +1,13 @@
 api_platform:
+    title: '%env(string:APP_NAME)% API'
+    description: 'Copyright © %env(string:APP_NAME)%.'
+    version: '%env(string:APP_VERSION)%'
+    show_webby: false
     mapping:
         paths: ['%kernel.project_dir%/src/Entity']
-    patch_formats:
-        json: ['application/merge-patch+json']
     swagger:
         versions: [3]
+    patch_formats:
+        json: ['application/json']
+    error_formats:
+        json: ['application/json']

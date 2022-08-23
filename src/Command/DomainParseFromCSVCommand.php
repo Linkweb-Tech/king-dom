@@ -26,10 +26,10 @@ class DomainParseFromCSVCommand extends Command
 
     use DateTrait;
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    public function execute(InputInterface $input, OutputInterface $output): int
     {
         $rowNo = 1;
-        if (($fp = fopen("/Users/nicolas_candelon/Documents/Projects/king-dom/csv/domains.csv", "r")) !== FALSE) {
+        if (($fp = fopen("/Users/nicolas_candelon/Documents/Projects/king-dom/csv/domains.csv", 'rb')) !== FALSE) {
             while (($row = fgetcsv($fp, 1000, ",")) !== FALSE) {
                 $num = count($row);
                 $rowNo++;

@@ -5,7 +5,6 @@ namespace App\Controller\Domain;
 use App\Controller\Trait\WhoisTrait;
 use App\Entity\Domain;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpKernel\Attribute\AsController;
 

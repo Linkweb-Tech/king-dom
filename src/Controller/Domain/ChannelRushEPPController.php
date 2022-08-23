@@ -1,11 +1,8 @@
 <?php
 
-
 namespace App\Controller\Domain;
-use App\Controller\Domain\ChannelEPPController;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
-
 
 class ChannelRushEPPController extends ChannelEPPController
 {
