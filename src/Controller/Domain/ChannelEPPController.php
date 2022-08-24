@@ -194,6 +194,23 @@ class ChannelEPPController extends AbstractController
     }
 
 
+    public function killConnection(string $domain)
+    {
+        $context = stream_context_create(array('ssl' => array('local_cert' => $this->cert_url.'src/Controller/Domain/LINKWEB_SARL_afnic_cert+key.pem',"verify_peer" => false,"verify_peer_name"=>true)));
+        $this->fp = stream_socket_client('ssl://'.$this->host.':'.$this->port, $errno, $errstr, 30, STREAM_CLIENT_CONNECT, $context);
+        $buffer = "<?xml version='1.0' encoding='UTF-8'?>
+            <epp xmlns='urn:ietf:params:xml:ns:epp-1.0' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='urn:ietf:params:xml:ns:epp-1.0 epp-1.0.xsd'>
+                <command>
+                    <logout/>
+                    <clTRID>874c8fa49805e07cba4faf2904227e84623103a6</clTRID>
+                </command>
+            </epp>";
+        fwrite($this->fp, pack('N', 4 + strlen($buffer)));
+        fwrite($this->fp, $buffer);
+        $frame = $this->receive($this->fp);
+        //file_put_contents('/Users/nicolas_candelon/Documents/Projects/king-dom/result-'. $domain .'.txt', json_encode($frame), FILE_APPEND);
+        return $frame;
+    }
 
 }
 

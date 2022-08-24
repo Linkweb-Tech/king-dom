@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2cec845f-e43d-41c8-8643-2b61c45e4b16" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/Domain/SnapController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Domain/SnapController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Domain.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Domain.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Domain/ChannelEPPController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Domain/ChannelEPPController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,13 +224,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  }
-}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -319,6 +311,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.env">
